@@ -1,0 +1,14 @@
+name,moons_around,name_of_star,short_info,have_moons,have_life
+Earth,1,Sun,The third planet from the Sun and the only known celestial body to support life.,true,true
+Mars,2,Sun,The fourth planet from the Sun often called the "Red Planet.",true,false
+Jupiter,79,Sun,The largest planet in our solar system known for its massive size and powerful storms.,true,false
+Saturn,83,Sun,Famous for its stunning ring system Saturn is the sixth planet from the Sun.,true,false
+Neptune,14,Sun,The eighth and farthest known planet from the Sun known for its deep blue color.,true,false
+Venus,0,Sun,The second planet from the Sun often referred to as Earths "sister planet.",false,false
+Mercury,0,Sun,The smallest planet in our solar system closest to the Sun.,false,false
+Uranus,27,Sun,The seventh planet from the Sun known for its distinct tilt.,true,false
+Pluto,5,Sun,A dwarf planet located in the Kuiper Belt once considered the ninth planet.,true,false
+Kepler-22b,0,Kepler-22,An exoplanet located in the habitable zone of the star Kepler-22.,false,false
+Gliese 581g,2,Gliese 581,A potentially habitable exoplanet orbiting the red dwarf star Gliese 581.,true,true
+Proxima Centauri b,0,Proxima Centauri,A potentially habitable exoplanet in the habitable zone of Proxima Centauri.,false,true
+TRAPPIST-1e,0,Trappist-1,An exoplanet in the TRAPPIST-1 system part of a seven-planet system.,false,true
