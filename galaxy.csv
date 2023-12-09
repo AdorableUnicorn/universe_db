@@ -1,7 +1,7 @@
-Number of Stars (Billion),Name,Size (Light-years)
-100,Milky Way,100000.00
-1000,Andromeda,220000.00
-40,Triangulum,60000.00
-2,Sombrero,50000.00
-100,Whirlpool,60000.00
-100,Pinwheel,170000.00
+Number of Stars (Billion),Name,Size (Light-years),ShortInfo
+100,Milky Way,100000.00,Our home galaxy with approximately 100 billion stars.
+1000,Andromeda,220000.00,The nearest spiral galaxy to the Milky Way with about 1 trillion stars.
+40,Triangulum,60000.00,A member of the Local Group; smaller than the Milky Way and Andromeda.
+2,Sombrero,50000.00,Named for its appearance: a spiral galaxy with a bright nucleus and a wide brim.
+100,Whirlpool,60000.00,Interacting with a smaller galaxy; known for its spiral arms and star formation.
+100,Pinwheel,170000.00,Also known as Messier 101: a face-on spiral galaxy in the constellation Ursa Major.
