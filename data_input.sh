@@ -47,12 +47,12 @@ do
     fi
 done
 
-cat moon.csv | while IFS="," read NAME PLANET INFO
+cat moon.csv | while IFS="," read NAME PLANET INFO SIZE
 do
     if [[ $NAME != "name" ]]
     then
         PLANET_ID=$($PSQL "SELECT planet_id FROM planet WHERE name='$PLANET'")
-        INSERT_DATA=$($PSQL "INSERT INTO moon(name, planet_id, short_info) VALUES ('$NAME', $PLANET_ID, '$INFO')")
+        INSERT_DATA=$($PSQL "INSERT INTO moon(name, planet_id, short_info, diametr_km) VALUES ('$NAME', $PLANET_ID, '$INFO', $SIZE)")
         if [[ $INSERT_DATA == "INSERT 0 1" ]]
         then
             echo "Inserted into moon: $NAME" 
