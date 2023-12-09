@@ -28,7 +28,7 @@ CREATE TABLE public.asteroid (
     asteroid_id integer NOT NULL,
     star_id integer,
     short_info text,
-    name character varying(50)
+    name character varying(50) NOT NULL
 );
 
 
@@ -101,7 +101,8 @@ CREATE TABLE public.moon (
     moon_id integer NOT NULL,
     name character varying(50) NOT NULL,
     planet_id integer,
-    short_info text
+    short_info text,
+    diametr_km numeric(10,1)
 );
 
 
@@ -245,16 +246,16 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 --
 
 COPY public.asteroid (asteroid_id, star_id, short_info, name) FROM stdin;
-91	193	The largest object in the asteroid belt between Mars and Jupiter; also classified as a dwarf planet	Ceres
-92	193	One of the largest asteroids in the asteroid belt with a sizeable crater on its surface	Vesta
-93	193	The second-largest asteroid in the asteroid belt known for its irregular shape	Pallas
-94	193	A main-belt asteroid and one of the largest stony asteroids	Juno
-95	193	The fourth-largest and one of the darkest asteroids in the asteroid belt	Hygiea
-96	193	An elongated asteroid that became the first near-Earth asteroid to be orbited by a spacecraft	Eros
-97	193	An asteroid believed to be composed largely of metallic iron and nickel; a target for a NASA mission	Psyche
-98	193	A large main-belt asteroid that was visited by the Rosetta spacecraft	Lutetia
-99	193	An asteroid in the Koronis family visited by the Galileo spacecraft	Ida
-100	193	A C-type asteroid and one of the largest in the asteroid belt visited by the NEAR Shoemaker spacecraft	Mathilde
+111	209	The largest object in the asteroid belt between Mars and Jupiter; also classified as a dwarf planet	Ceres
+112	209	One of the largest asteroids in the asteroid belt with a sizeable crater on its surface	Vesta
+113	209	The second-largest asteroid in the asteroid belt known for its irregular shape	Pallas
+114	209	A main-belt asteroid and one of the largest stony asteroids	Juno
+115	209	The fourth-largest and one of the darkest asteroids in the asteroid belt	Hygiea
+116	209	An elongated asteroid that became the first near-Earth asteroid to be orbited by a spacecraft	Eros
+117	209	An asteroid believed to be composed largely of metallic iron and nickel; a target for a NASA mission	Psyche
+118	209	A large main-belt asteroid that was visited by the Rosetta spacecraft	Lutetia
+119	209	An asteroid in the Koronis family visited by the Galileo spacecraft	Ida
+120	209	A C-type asteroid and one of the largest in the asteroid belt visited by the NEAR Shoemaker spacecraft	Mathilde
 \.
 
 
@@ -263,12 +264,12 @@ COPY public.asteroid (asteroid_id, star_id, short_info, name) FROM stdin;
 --
 
 COPY public.galaxy (galaxy_id, number_of_stars_bl, name, size, short_info) FROM stdin;
-294	100	Milky Way	100000.00	Our home galaxy with approximately 100 billion stars.
-295	1000	Andromeda	220000.00	The nearest spiral galaxy to the Milky Way with about 1 trillion stars.
-296	40	Triangulum	60000.00	A member of the Local Group; smaller than the Milky Way and Andromeda.
-297	2	Sombrero	50000.00	Named for its appearance: a spiral galaxy with a bright nucleus and a wide brim.
-298	100	Whirlpool	60000.00	Interacting with a smaller galaxy; known for its spiral arms and star formation.
-299	100	Pinwheel	170000.00	Also known as Messier 101: a face-on spiral galaxy in the constellation Ursa Major.
+306	100	Milky Way	100000.00	Our home galaxy with approximately 100 billion stars.
+307	1000	Andromeda	220000.00	The nearest spiral galaxy to the Milky Way with about 1 trillion stars.
+308	40	Triangulum	60000.00	A member of the Local Group; smaller than the Milky Way and Andromeda.
+309	2	Sombrero	50000.00	Named for its appearance: a spiral galaxy with a bright nucleus and a wide brim.
+310	100	Whirlpool	60000.00	Interacting with a smaller galaxy; known for its spiral arms and star formation.
+311	100	Pinwheel	170000.00	Also known as Messier 101: a face-on spiral galaxy in the constellation Ursa Major.
 \.
 
 
@@ -276,27 +277,27 @@ COPY public.galaxy (galaxy_id, number_of_stars_bl, name, size, short_info) FROM 
 -- Data for Name: moon; Type: TABLE DATA; Schema: public; Owner: spaceunicorn
 --
 
-COPY public.moon (moon_id, name, planet_id, short_info) FROM stdin;
-233	Moon	241	Earths only natural satellite
-234	Phobos	242	One of the two moons of Mars
-235	Deimos	242	The smaller and outermost moon of Mars
-236	Io	243	The innermost and fourth-largest moon of Jupiter
-237	Europa	243	One of Jupiters Galilean moons known for its ice-covered surface
-238	Ganymede	243	The largest moon in our solar system - a moon of Jupiter
-239	Callisto	243	The third-largest moon of Jupiter
-240	Titan	244	The largest moon of Saturn known for its thick atmosphere
-241	Enceladus	244	One of Saturns moons with an icy surface and geysers of water vapor
-242	Mimas	244	The smallest and innermost of Saturns major moons
-243	Triton	245	The largest moon of Neptune known for its retrograde orbit
-244	Charon	249	Plutos largest moon - part of the Pluto-Charon binary system
-245	Luna	241	The Latin name for Earths Moon
-246	Phoebe	244	An irregular moon of Saturn known for its retrograde orbit
-247	Rhea	244	The second-largest moon of Saturn
-248	Dione	244	A moon of Saturn known for its bright icy surface
-249	Hyperion	244	An irregular moon of Saturn with an irregular shape
-250	Ariel	248	One of Uranuss five major moons
-251	Titania	248	The largest moon of Uranus
-252	Miranda	248	The smallest and innermost of Uranuss five major moons
+COPY public.moon (moon_id, name, planet_id, short_info, diametr_km) FROM stdin;
+265	Moon	267	Earths only natural satellite	3474.8
+266	Phobos	268	One of the two moons of Mars	22.4
+267	Deimos	268	The smaller and outermost moon of Mars	12.4
+268	Io	269	The innermost and fourth-largest moon of Jupiter	3643.2
+269	Europa	269	One of Jupiters Galilean moons known for its ice-covered surface	3121.6
+270	Ganymede	269	The largest moon in our solar system - a moon of Jupiter	5268.2
+271	Callisto	269	The third-largest moon of Jupiter	4821.0
+272	Titan	270	The largest moon of Saturn known for its thick atmosphere	5152.0
+273	Enceladus	270	One of Saturns moons with an icy surface and geysers of water vapor	504.2
+274	Mimas	270	The smallest and innermost of Saturns major moons	396.0
+275	Triton	271	The largest moon of Neptune known for its retrograde orbit	2706.8
+276	Charon	275	Plutos largest moon - part of the Pluto-Charon binary system	1212.0
+277	Luna	267	The Latin name for Earths Moon	3474.8
+278	Phoebe	270	An irregular moon of Saturn known for its retrograde orbit	213.0
+279	Rhea	270	The second-largest moon of Saturn	1527.6
+280	Dione	270	A moon of Saturn known for its bright icy surface	1123.6
+281	Hyperion	270	An irregular moon of Saturn with an irregular shape	220.0
+282	Ariel	274	One of Uranuss five major moons	578.9
+283	Titania	274	The largest moon of Uranus	1578.8
+284	Miranda	274	The smallest and innermost of Uranuss five major moons	471.6
 \.
 
 
@@ -305,19 +306,19 @@ COPY public.moon (moon_id, name, planet_id, short_info) FROM stdin;
 --
 
 COPY public.planet (planet_id, moons_around, name, star_id, more_info, have_moons, have_life) FROM stdin;
-241	1	Earth	193	The third planet from the Sun and the only known celestial body to support life.	t	t
-242	2	Mars	193	The fourth planet from the Sun often called the "Red Planet."	t	f
-243	79	Jupiter	193	The largest planet in our solar system known for its massive size and powerful storms.	t	f
-244	83	Saturn	193	Famous for its stunning ring system Saturn is the sixth planet from the Sun.	t	f
-245	14	Neptune	193	The eighth and farthest known planet from the Sun known for its deep blue color.	t	f
-246	0	Venus	193	The second planet from the Sun often referred to as Earths "sister planet."	f	f
-247	0	Mercury	193	The smallest planet in our solar system closest to the Sun.	f	f
-248	27	Uranus	193	The seventh planet from the Sun known for its distinct tilt.	t	f
-249	5	Pluto	193	A dwarf planet located in the Kuiper Belt once considered the ninth planet.	t	f
-250	0	Kepler-22b	199	An exoplanet located in the habitable zone of the star Kepler-22.	f	f
-251	2	Gliese 581g	200	A potentially habitable exoplanet orbiting the red dwarf star Gliese 581.	t	t
-252	0	Proxima Centauri b	194	A potentially habitable exoplanet in the habitable zone of Proxima Centauri.	f	t
-253	0	TRAPPIST-1e	196	An exoplanet in the TRAPPIST-1 system part of a seven-planet system.	f	t
+267	1	Earth	209	The third planet from the Sun and the only known celestial body to support life.	t	t
+268	2	Mars	209	The fourth planet from the Sun often called the "Red Planet."	t	f
+269	79	Jupiter	209	The largest planet in our solar system known for its massive size and powerful storms.	t	f
+270	83	Saturn	209	Famous for its stunning ring system Saturn is the sixth planet from the Sun.	t	f
+271	14	Neptune	209	The eighth and farthest known planet from the Sun known for its deep blue color.	t	f
+272	0	Venus	209	The second planet from the Sun often referred to as Earths "sister planet."	f	f
+273	0	Mercury	209	The smallest planet in our solar system closest to the Sun.	f	f
+274	27	Uranus	209	The seventh planet from the Sun known for its distinct tilt.	t	f
+275	5	Pluto	209	A dwarf planet located in the Kuiper Belt once considered the ninth planet.	t	f
+276	0	Kepler-22b	215	An exoplanet located in the habitable zone of the star Kepler-22.	f	f
+277	2	Gliese 581g	216	A potentially habitable exoplanet orbiting the red dwarf star Gliese 581.	t	t
+278	0	Proxima Centauri b	210	A potentially habitable exoplanet in the habitable zone of Proxima Centauri.	f	t
+279	0	TRAPPIST-1e	212	An exoplanet in the TRAPPIST-1 system part of a seven-planet system.	f	t
 \.
 
 
@@ -326,14 +327,14 @@ COPY public.planet (planet_id, moons_around, name, star_id, more_info, have_moon
 --
 
 COPY public.star (star_id, planets_inside, name, galaxy_id, short_info) FROM stdin;
-193	8	Sun	294	The center of our solar system.
-194	3	Proxima Centauri	294	The closest known star to the Sun.
-195	5	Kepler-186	294	A star with a planetary system including Earth-sized planets.
-196	7	Trappist-1	294	A red dwarf star with a system of seven Earth-sized planets.
-197	0	Alpha Centauri B	294	Part of the Alpha Centauri star system.
-198	5	Tau Ceti	294	A Sun-like star with a debris disk.
-199	1	Kepler-22	294	Hosts Kepler-22b - an exoplanet in the habitable zone.
-200	4	Gliese 581	294	A red dwarf star with multiple known planets.
+209	8	Sun	306	The center of our solar system.
+210	3	Proxima Centauri	306	The closest known star to the Sun.
+211	5	Kepler-186	306	A star with a planetary system including Earth-sized planets.
+212	7	Trappist-1	306	A red dwarf star with a system of seven Earth-sized planets.
+213	0	Alpha Centauri B	306	Part of the Alpha Centauri star system.
+214	5	Tau Ceti	306	A Sun-like star with a debris disk.
+215	1	Kepler-22	306	Hosts Kepler-22b - an exoplanet in the habitable zone.
+216	4	Gliese 581	306	A red dwarf star with multiple known planets.
 \.
 
 
@@ -341,35 +342,35 @@ COPY public.star (star_id, planets_inside, name, galaxy_id, short_info) FROM std
 -- Name: asteroid_asteroid_id_seq; Type: SEQUENCE SET; Schema: public; Owner: spaceunicorn
 --
 
-SELECT pg_catalog.setval('public.asteroid_asteroid_id_seq', 100, true);
+SELECT pg_catalog.setval('public.asteroid_asteroid_id_seq', 120, true);
 
 
 --
 -- Name: galaxy_galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: spaceunicorn
 --
 
-SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 299, true);
+SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 311, true);
 
 
 --
 -- Name: moon_moon_id_seq; Type: SEQUENCE SET; Schema: public; Owner: spaceunicorn
 --
 
-SELECT pg_catalog.setval('public.moon_moon_id_seq', 252, true);
+SELECT pg_catalog.setval('public.moon_moon_id_seq', 284, true);
 
 
 --
 -- Name: planet_planet_id_seq; Type: SEQUENCE SET; Schema: public; Owner: spaceunicorn
 --
 
-SELECT pg_catalog.setval('public.planet_planet_id_seq', 253, true);
+SELECT pg_catalog.setval('public.planet_planet_id_seq', 279, true);
 
 
 --
 -- Name: star_star_id_seq; Type: SEQUENCE SET; Schema: public; Owner: spaceunicorn
 --
 
-SELECT pg_catalog.setval('public.star_star_id_seq', 200, true);
+SELECT pg_catalog.setval('public.star_star_id_seq', 216, true);
 
 
 --
