@@ -1,9 +1,9 @@
-KnownPlanets,StarName,GalaxyName
-8,Sun,Milky Way
-3,Proxima Centauri,Milky Way
-5,Kepler-186,Milky Way
-7,Trappist-1,Milky Way
-0,Alpha Centauri B,Milky Way
-5,Tau Ceti,Milky Way
-1,Kepler-22,Milky Way
-4,Gliese 581,Milky Way
+KnownPlanets,StarName,GalaxyName,ShortInfo
+8,Sun,Milky Way,The center of our solar system.
+3,Proxima Centauri,Milky Way,The closest known star to the Sun.
+5,Kepler-186,Milky Way,A star with a planetary system including Earth-sized planets.
+7,Trappist-1,Milky Way,A red dwarf star with a system of seven Earth-sized planets.
+0,Alpha Centauri B,Milky Way,Part of the Alpha Centauri star system.
+5,Tau Ceti,Milky Way,A Sun-like star with a debris disk.
+1,Kepler-22,Milky Way,Hosts Kepler-22b - an exoplanet in the habitable zone.
+4,Gliese 581,Milky Way,A red dwarf star with multiple known planets.
