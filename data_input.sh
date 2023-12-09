@@ -7,11 +7,11 @@ echo $($PSQL "TRUNCATE galaxy, star, planet, moon, asteroid")
 
 
 
-cat galaxy.csv | while IFS="," read STAR NAME SIZE
+cat galaxy.csv | while IFS="," read STAR NAME SIZE INFO
 do
     if [[ $STAR != "Number of Stars (Billion)" ]]
     then
-        INSERT_DATA="$($PSQL "INSERT INTO galaxy(number_of_stars_bl, name, size) VALUES($STAR, '$NAME', $SIZE)")"
+        INSERT_DATA="$($PSQL "INSERT INTO galaxy(number_of_stars_bl, name, size, short_info) VALUES($STAR, '$NAME', $SIZE, '$INFO')")"
         if [[ $INSERT_DATA == "INSERT 0 1" ]]
         then
             echo "Inserted into galaxy: $NAME" 
@@ -19,13 +19,13 @@ do
     fi    
 done
 
-cat star.csv | while IFS="," read PLANETS NAME GALAXY
+cat star.csv | while IFS="," read PLANETS NAME GALAXY INFO
 do
     if [[ $PLANETS != "KnownPlanets" ]]
     then
         #get galaxy_id
         GALAXY_ID=$($PSQL "SELECT galaxy_id FROM galaxy WHERE name='$GALAXY'")
-        INSERT_DATA=$($PSQL "INSERT INTO star(planets_inside, name, galaxy_id) VALUES($PLANETS, '$NAME', $GALAXY_ID)")
+        INSERT_DATA=$($PSQL "INSERT INTO star(planets_inside, name, galaxy_id, short_info) VALUES($PLANETS, '$NAME', $GALAXY_ID, '$INFO')")
         if [[ $INSERT_DATA == "INSERT 0 1" ]]
         then
             echo "Inserted into star: $NAME" 
